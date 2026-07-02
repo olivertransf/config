@@ -1,0 +1,10 @@
+[user]
+	name = Oliver Tran
+	email = 137974300+olivertransf@users.noreply.github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[safe]
+	directory = /Users/olivertran/Library/Mobile Documents/iCloud~md~obsidian/Documents/penguin

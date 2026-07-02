@@ -1,0 +1,138 @@
+# =============================================================================
+# ⌃⌥⌘ + arrows: Hammerspoon-style snap (floats BSP window if needed, then --grid).
+# ⌃⌘ + arrows: swap with tiled neighbor (BSP only).
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Minimal reference (yabai examples/skhdrc) — merged into this file
+# Full commented upstream: ~/.config/skhd/skhdrc.upstream-yabai-example
+# -----------------------------------------------------------------------------
+# If this fires, skhd is working (check Input Monitoring / Accessibility if not)
+cmd + shift - 0 : osascript -e 'display notification "skhd ok" with title "skhd"'
+
+# Focus (upstream: alt + hjkl)
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# Swap with neighbor — upstream uses shift+alt+hjkl; those are your warps below, so swap is ⌃⌥+hjkl
+ctrl + alt - h : yabai -m window --swap west
+ctrl + alt - j : yabai -m window --swap south
+ctrl + alt - k : yabai -m window --swap north
+ctrl + alt - l : yabai -m window --swap east
+
+# Warp (upstream shift+cmd+hjkl) — you also have shift+alt+hjkl for warp later
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
+
+shift + alt - 0 : yabai -m space --balance
+
+alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+alt - e : yabai -m window --toggle split
+
+# -----------------------------------------------------------------------------
+# Hammerspoon-style ⌃⌥⌘ snaps + rest of config
+# -----------------------------------------------------------------------------
+
+# Halves (⌃⌥⌘ + arrows) — same chord as old Hammerspoon
+ctrl + alt + cmd - left           : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 1:2:0:0:1:1
+ctrl + alt + cmd - right          : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 1:2:1:0:1:1
+ctrl + alt + cmd - up             : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 2:1:0:0:1:1
+ctrl + alt + cmd - down           : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 2:1:0:1:1:1
+cmd + alt + ctrl - left           : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 1:2:0:0:1:1
+cmd + alt + ctrl - right          : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 1:2:1:0:1:1
+cmd + alt + ctrl - up             : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 2:1:0:0:1:1
+cmd + alt + ctrl - down           : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 2:1:0:1:1:1
+
+# Swap with tiled neighbor (BSP) — ⌃⌘ + arrows, no Shift, no Option
+ctrl + cmd - left                 : yabai -m window --swap west
+ctrl + cmd - right                : yabai -m window --swap east
+ctrl + cmd - up                   : yabai -m window --swap north
+ctrl + cmd - down                 : yabai -m window --swap south
+cmd + ctrl - left                 : yabai -m window --swap west
+cmd + ctrl - right                : yabai -m window --swap east
+cmd + ctrl - up                   : yabai -m window --swap north
+cmd + ctrl - down                 : yabai -m window --swap south
+
+# Quarters (Q W A S)
+cmd + alt + ctrl - q              : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 2:2:0:0:1:1
+cmd + alt + ctrl - w              : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 2:2:1:0:1:1
+cmd + alt + ctrl - a              : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 2:2:0:1:1:1
+cmd + alt + ctrl - s              : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 2:2:1:1:1:1
+
+# Maximize / center / padded center (~80%)
+cmd + alt + ctrl - m              : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 1:1:0:0:1:1
+cmd + alt + ctrl - c              : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 6:6:1:1:4:4
+cmd + alt + ctrl - space          : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 10:10:1:1:8:8
+
+# Cycle windows of current app (Hammerspoon T — function was missing in init.lua)
+cmd + alt + ctrl - t              : /Users/olivertran/.config/skhd/scripts/focus-next-same-app.sh
+
+# Jump to desktop N (Hammerspoon ctrl+opt Z X C V B N M , .)
+ctrl + alt - z                    : yabai -m space --focus 1
+ctrl + alt - x                    : yabai -m space --focus 2
+ctrl + alt - c                    : yabai -m space --focus 3
+ctrl + alt - v                    : yabai -m space --focus 4
+ctrl + alt - b                    : yabai -m space --focus 5
+ctrl + alt - n                    : yabai -m space --focus 6
+ctrl + alt - m                    : yabai -m space --focus 7
+ctrl + alt - comma                : yabai -m space --focus 8
+ctrl + alt - period               : yabai -m space --focus 9
+
+# =============================================================================
+# Spaces (yabai) — kept alongside Hammerspoon-style ctrl+alt row above
+# =============================================================================
+# Next / previous space
+cmd + alt + ctrl - tab            : yabai -m space --focus next
+cmd + alt + ctrl + shift - tab    : yabai -m space --focus prev
+
+# Direct spaces (A S D F G)
+alt + ctrl - a                    : yabai -m space --focus 1
+alt + ctrl - s                    : yabai -m space --focus 2
+alt + ctrl - d                    : yabai -m space --focus 3
+alt + ctrl - f                    : yabai -m space --focus 4
+alt + ctrl - g                    : yabai -m space --focus 5
+
+# =============================================================================
+# Extra tiling (shift+alt) — tree warps + grid
+# =============================================================================
+shift + alt - left                : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 1:2:0:0:1:1
+shift + alt - right               : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 1:2:1:0:1:1
+shift + alt - up                  : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 2:1:0:0:1:1
+shift + alt - down                : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 2:1:0:1:1:1
+
+shift + alt - o                   : yabai -m window --toggle split
+
+shift + alt - h                   : yabai -m window --warp west
+shift + alt - j                   : yabai -m window --warp south
+shift + alt - k                   : yabai -m window --warp north
+shift + alt - l                   : yabai -m window --warp east
+
+shift + alt - x                   : yabai -m space --mirror x-axis
+shift + alt - y                   : yabai -m space --mirror y-axis
+
+# Float toggle (was duplicate shift+alt+f with zoom-fullscreen below)
+shift + alt - g                   : yabai -m window --toggle float; yabai -m window --toggle border
+
+# Restart Yabai
+shift + lctrl + alt - r           : \
+    /usr/bin/env osascript <<< \
+        "display notification \"Restarting Yabai\" with title \"Yabai\""; \
+    launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# Zoom / fullscreen
+shift + alt - f                   : yabai -m window --toggle zoom-fullscreen
+shift + alt - space               : yabai -m window --toggle native-fullscreen
+
+# Resize windows
+lctrl + alt - h                   : yabai -m window --resize left:-50:0
+lctrl + alt - j                   : yabai -m window --resize bottom:0:50
+lctrl + alt - k                   : yabai -m window --resize top:0:-50
+lctrl + alt - l                   : yabai -m window --resize right:50:0
+
+lctrl + alt - e                   : yabai -m space --balance
+
+shift + alt - m                   : /Users/olivertran/.config/skhd/scripts/yabai-apply-grid.sh 1:1:0:0:1:1

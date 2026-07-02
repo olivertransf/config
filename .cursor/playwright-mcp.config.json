@@ -1,0 +1,12 @@
+{
+  "browser": {
+    "isolated": true,
+    "launchOptions": {
+      "channel": "chrome"
+    }
+  },
+  "timeouts": {
+    "navigation": 45000,
+    "action": 20000
+  }
+}

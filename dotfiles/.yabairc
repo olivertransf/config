@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+# Ignored when ~/.config/yabai/yabairc exists. Edit that file instead.
+yabai -m config layout bsp

@@ -1,0 +1,60 @@
+---
+description: Commit after every batch of file edits in git repos
+alwaysApply: true
+---
+
+# Auto-commit after edits
+
+After you finish editing files in a turn, commit the changes before ending your response.
+
+## When to commit
+
+- Commit after any turn where you created, modified, or deleted tracked or untracked project files.
+- Skip if the workspace is not a git repo (`git rev-parse --is-inside-work-tree` fails).
+- Skip if there are no changes to commit.
+- Skip if the user explicitly says not to commit in that turn.
+- Do not push unless the user asks.
+
+## Safety
+
+- Never update git config.
+- Never run destructive git commands (force push, hard reset, etc.) unless explicitly requested.
+- Never skip hooks (`--no-verify`, `--no-gpg-sign`, etc.) unless explicitly requested.
+- Never commit files that likely contain secrets (`.env`, credentials, keys). Warn the user instead.
+- Avoid `git commit --amend` unless the user explicitly requests it and amend rules are satisfied.
+
+## Commit workflow
+
+Run these in parallel first:
+
+```bash
+git status
+git diff
+git log -5 --oneline
+```
+
+Then:
+
+1. Stage only the files you edited in this turn (or all relevant changes if they belong together).
+2. Draft a Conventional Commits message: `<type>(<scope>): <imperative summary>`, ≤50 chars when possible. Add a body only when the why is not obvious.
+3. Commit with a HEREDOC:
+
+```bash
+git add <paths>
+git commit -m "$(cat <<'EOF'
+<type>(<scope>): <summary>
+
+Optional body when needed.
+
+EOF
+)"
+git status
+```
+
+4. If a pre-commit hook fails, fix the issue and create a new commit. Do not amend a failed commit.
+
+## Message quality
+
+- Imperative mood: "add", "fix", "remove" — not "added" or "adding".
+- Focus on why, not a file list.
+- One logical change per commit when possible. If a turn spans unrelated changes, split into multiple commits.

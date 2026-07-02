@@ -1,0 +1,12 @@
+---
+description: Playwright MCP — extension (logged-in) vs isolated vs CDP
+alwaysApply: false
+---
+
+# Playwright MCP in Cursor
+
+- **`playwright` server:** `--extension` mode. Install [Playwright MCP Bridge](https://chromewebstore.google.com/detail/playwright-mcp-bridge/mmlmfjhmonkocbjadbfplnigmagldckm). To **skip the “Allow” connection prompt**, open the extension’s UI in Chrome, copy **`PLAYWRIGHT_MCP_EXTENSION_TOKEN`**, and add to the `playwright` block in `~/.cursor/mcp.json`: `"env": { "PLAYWRIGHT_MCP_EXTENSION_TOKEN": "<paste here>" }`. Reload MCP/Cursor after saving. Token is per browser profile—treat it like a secret.
+- **`playwright-isolated` server:** launches a fresh Chrome automation profile (`playwright-mcp.config.json`) when you do not want the extension or a logged-in session.
+- **`playwright-cdp` server:** connects to `http://127.0.0.1:9222`. Requires a **non-default** user-data dir; use `~/.cursor/chrome-cdp-launch.sh` after a one-time copy of `Default` into `~/.chrome-debug`. Quit normal Chrome before launching the CDP Chrome.
+
+Do **not** point MCP at the real `~/Library/.../Google/Chrome` path for CDP or duplicate launches — that hangs or is blocked by Chrome.

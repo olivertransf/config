@@ -1,0 +1,13 @@
+{
+  "browser": {
+    "userDataDir": "/Users/olivertran/Library/Application Support/Google/Chrome",
+    "launchOptions": {
+      "channel": "chrome",
+      "args": ["--profile-directory=Default"]
+    }
+  },
+  "timeouts": {
+    "navigation": 45000,
+    "action": 20000
+  }
+}

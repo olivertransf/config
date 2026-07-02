@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+# Ignored if ~/.config/yabai/yabairc exists (yabai prefers XDG). Edit that file instead.
+# BSP tiling (ignored if ~/.config/yabai/yabairc exists)
+yabai -m config layout bsp
+
+# Window opacity (ignored if ~/.config/yabai/yabairc exists)
+yabai -m config window_opacity          on
+yabai -m config window_opacity_duration 0.0
+yabai -m config active_window_opacity   1.0
+yabai -m config normal_window_opacity   1.0
+
+yabai -m rule --add app="^Obsidian$" opacity=0.92
+yabai -m rule --add app="^Cursor$" opacity=0.95
+yabai -m rule --add app="^Spotify$" opacity=0.90
+yabai -m rule --add app="^Arc$" opacity=0.98
+yabai -m rule --add app="^Finder$" opacity=0.95
+yabai -m rule --add app="^Xcode$" opacity=0.95
+yabai -m rule --add app="^System Settings$" opacity=0.95
+yabai -m rule --add app="^System Preferences$" opacity=0.95
+yabai -m rule --add app="^PocketPic$" opacity=0.95
+yabai -m rule --add app="^Logic Pro$" opacity=0.95
+yabai -m rule --add app="^Studium$" opacity=0.95
+yabai -m rule --add app="^iPhone Mirroring$" opacity=0.95

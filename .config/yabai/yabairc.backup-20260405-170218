@@ -1,0 +1,158 @@
+#!/usr/bin/env sh
+
+# Scripting addition — required for per-window opacity (e.g. Obsidian editor area).
+# Install once (password): echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d' ' -f1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
+# After yabai upgrades, re-run that line (hash changes). SIP must allow SA (see yabai wiki).
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa; yabai -m config layout bsp"
+sudo yabai --load-sa
+
+# =========================================================
+# Global configuration
+# =========================================================
+# NOTE: yabai loads ~/.config/yabai/yabairc before ~/.yabairc.
+# Edits to ~/.yabairc alone have no effect while this file exists.
+
+# BSP tiling (new windows tile automatically; cmd+alt+ctrl arrows still snap via skhd --grid)
+yabai -m config layout                       bsp
+
+# BSP-only options (harmless under float; keep if you switch layout back to bsp)
+yabai -m config auto_balance                 on
+yabai -m config window_placement             second_child
+
+yabai -m config split_ratio                  0.50
+yabai -m config window_gap                   0
+yabai -m config external_bar                 off
+yabai -m config top_padding                  0
+yabai -m config bottom_padding               0
+yabai -m config left_padding                 0
+yabai -m config right_padding                0
+
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config window_shadow                off
+yabai -m config window_animation_duration    0.0
+yabai -m config insert_feedback_color        0xff5e81ac
+
+# Window opacity: needs scripting addition (see top of this file).
+yabai -m config window_opacity               on
+yabai -m config window_opacity_duration      0.0
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        1.0
+
+# =========================================================
+# Floating rules (apps that should NOT be tiled)
+# =========================================================
+# Rationale: transient windows, inspectors, system UI,
+# media players, and apps with nonstandard resizing behavior
+
+FLOAT_APPS="
+System Settings
+System Preferences
+Finder
+Messages
+FaceTime
+PocketPic
+"
+
+# -- Existing floating rules below --
+for app in $FLOAT_APPS; do
+  yabai -m rule --add app="$app" manage=off
+done
+
+# Obsidian: whole-window opacity (main pane + sidebars); Obsidian’s own translucency only affects chrome.
+yabai -m rule --add app="^Obsidian$" opacity=0.92
+
+# Cursor (editor)
+yabai -m rule --add app="^Cursor$" opacity=0.95
+
+# Spotify
+yabai -m rule --add app="^Spotify$" opacity=0.90
+
+# Arc
+yabai -m rule --add app="^Arc$" opacity=0.98
+
+# macOS & tools @ 0.95 (if a name does not match, check: yabai -m query --windows)
+yabai -m rule --add app="^Finder$" opacity=0.95
+yabai -m rule --add app="^Xcode$" opacity=0.95
+yabai -m rule --add app="^System Settings$" opacity=0.95
+yabai -m rule --add app="^System Preferences$" opacity=0.95
+yabai -m rule --add app="^PocketPic$" opacity=0.95
+yabai -m rule --add app="^Logic Pro$" opacity=0.95
+yabai -m rule --add app="^Studium$" opacity=0.95
+yabai -m rule --add app="^iPhone Mirroring$" opacity=0.95
+
+# Common dialog / utility windows
+yabai -m rule --add title="Preferences" manage=off
+yabai -m rule --add title="Settings" manage=off
+yabai -m rule --add title="Open" manage=off
+yabai -m rule --add title="Save" manage=off
+yabai -m rule --add app="PocketPic" manage=off
+
+# To float Arc browser's picture-in-picture window:
+yabai -m rule --add app="Arc" title="Picture in Picture" manage=off
+yabai -m rule --add app="Arc" title="little arc" manage=off
+# (If Arc PiP windows ever have different title, you can check it with `yabai -m query --windows | jq .` while PiP is open)
+
+# =========================================================
+# Space rules (optional but practical)
+# =========================================================
+
+# Example:
+# yabai -m rule --add app="Safari" space=1
+# yabai -m rule --add app="Code" space=2
+# yabai -m rule --add app="iTerm2" space=3
+
+# =========================================================
+# Signals
+# =========================================================
+
+# dock_did_restart: handled at top (load-sa + layout float)
+
+# Opacity: rules sometimes leave windows at 1.0; signals match manual: yabai -m window <id> --opacity …
+yabai -m signal --add event=window_created app='^Obsidian$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.92'
+yabai -m signal --add event=window_created app='^Cursor$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.95'
+yabai -m signal --add event=window_created app='^Spotify$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.90'
+yabai -m signal --add event=window_created app='^Arc$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.98'
+yabai -m signal --add event=window_created app='^Finder$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.95'
+yabai -m signal --add event=window_created app='^Xcode$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.95'
+yabai -m signal --add event=window_created app='^System Settings$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.95'
+yabai -m signal --add event=window_created app='^System Preferences$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.95'
+yabai -m signal --add event=window_created app='^PocketPic$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.95'
+yabai -m signal --add event=window_created app='^Logic Pro$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.95'
+yabai -m signal --add event=window_created app='^Studium$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.95'
+yabai -m signal --add event=window_created app='^iPhone Mirroring$' action='yabai -m window $YABAI_WINDOW_ID --opacity 0.95'
+
+# Prevent yabai from managing any Godot windows (including popups/dialogs)
+yabai -m rule --add app="Godot" manage=off
+
+# Optionally, match by title for additional protection (for popups/dialogs launched by Godot)
+yabai -m rule --add title="Godot" manage=off
+
+# Windows already open when yabai starts (or before SA finished) stay opaque until touched:
+for _wid in $(yabai -m query --windows | python3 -c "import json,sys; w=json.load(sys.stdin); print(' '.join(str(x['id']) for x in w if x.get('app')=='Obsidian'))"); do
+  yabai -m window "$_wid" --opacity 0.92 2>/dev/null || true
+done
+for _wid in $(yabai -m query --windows | python3 -c "import json,sys; w=json.load(sys.stdin); print(' '.join(str(x['id']) for x in w if x.get('app')=='Cursor'))"); do
+  yabai -m window "$_wid" --opacity 0.95 2>/dev/null || true
+done
+for _wid in $(yabai -m query --windows | python3 -c "import json,sys; w=json.load(sys.stdin); print(' '.join(str(x['id']) for x in w if x.get('app')=='Spotify'))"); do
+  yabai -m window "$_wid" --opacity 0.90 2>/dev/null || true
+done
+for _wid in $(yabai -m query --windows | python3 -c "import json,sys; w=json.load(sys.stdin); print(' '.join(str(x['id']) for x in w if x.get('app')=='Arc'))"); do
+  yabai -m window "$_wid" --opacity 0.98 2>/dev/null || true
+done
+yabai -m query --windows | python3 -c '
+import json, sys, subprocess
+apps = {
+    "Finder", "Xcode", "System Settings", "System Preferences",
+    "PocketPic", "Logic Pro", "Studium", "iPhone Mirroring",
+}
+for x in json.load(sys.stdin):
+    if x.get("app") in apps:
+        subprocess.run(
+            ["yabai", "-m", "window", str(x["id"]), "--opacity", "0.95"],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
+'
+
+echo "yabai configuration loaded"

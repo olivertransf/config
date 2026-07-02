@@ -1,0 +1,49 @@
+# =============================================================================
+# MINIMAL skhd + yabai reference (from yabai examples/skhdrc)
+#
+# Modifier / key keywords: https://github.com/asmvik/skhd/issues/1
+# Commands run as: $SHELL -c "…"  (when skhd runs from launchd, PATH is often minimal)
+#
+# Swap in to test:
+#   cp ~/.config/skhd/skhdrc ~/.config/skhd/skhdrc.backup-$(date +%Y%m%d)
+#   cp ~/.config/skhd/skhdrc.minimal-reference ~/.config/skhd/skhdrc
+#   skhd --reload
+# Restore: copy backup back over skhdrc, then skhd --reload
+# =============================================================================
+
+# If yabai is not here, change to /usr/local/bin/yabai (Intel Homebrew) or `which yabai`.
+
+# Smoke test — if this never fires, fix skhd (Input Monitoring / Accessibility) first
+cmd + shift - 0 : osascript -e 'display notification "skhd is receiving this hotkey" with title "skhd test"'
+
+# --- Tiled / BSP: focus, swap, warp (always use these first to verify yabai) ---
+alt - h : /opt/homebrew/bin/yabai -m window --focus west
+alt - j : /opt/homebrew/bin/yabai -m window --focus south
+alt - k : /opt/homebrew/bin/yabai -m window --focus north
+alt - l : /opt/homebrew/bin/yabai -m window --focus east
+
+shift + alt - h : /opt/homebrew/bin/yabai -m window --swap west
+shift + alt - j : /opt/homebrew/bin/yabai -m window --swap south
+shift + alt - k : /opt/homebrew/bin/yabai -m window --swap north
+shift + alt - l : /opt/homebrew/bin/yabai -m window --swap east
+
+shift + cmd - h : /opt/homebrew/bin/yabai -m window --warp west
+shift + cmd - j : /opt/homebrew/bin/yabai -m window --warp south
+shift + cmd - k : /opt/homebrew/bin/yabai -m window --warp north
+shift + cmd - l : /opt/homebrew/bin/yabai -m window --warp east
+
+shift + alt - 0 : /opt/homebrew/bin/yabai -m space --balance
+
+alt - t : /opt/homebrew/bin/yabai -m window --toggle float --grid 4:4:1:1:2:2
+alt - e : /opt/homebrew/bin/yabai -m window --toggle split
+
+cmd + alt - 1 : /opt/homebrew/bin/yabai -m space --focus 1
+cmd + alt - 2 : /opt/homebrew/bin/yabai -m space --focus 2
+cmd + alt - 3 : /opt/homebrew/bin/yabai -m space --focus 3
+
+# --- --grid: reliable on floated windows; often a no-op while still BSP-tiled ---
+shift + alt - left   : /opt/homebrew/bin/yabai -m window --grid 1:2:0:0:1:1
+shift + alt - right  : /opt/homebrew/bin/yabai -m window --grid 1:2:1:0:1:1
+shift + alt - up     : /opt/homebrew/bin/yabai -m window --grid 1:1:0:0:1:1
+
+# Full upstream example (commented): ~/.config/skhd/skhdrc.upstream-yabai-example

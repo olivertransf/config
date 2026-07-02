@@ -1,0 +1,47 @@
+# yabai path (Intel Homebrew: /usr/local/bin/yabai)
+# Permissions: System Settings → Privacy & Security → Input Monitoring → skhd
+
+# Warp in BSP tree — ⌃⌥⌘ + arrows (Control + Option + Command)
+ctrl + alt + cmd - left   : /opt/homebrew/bin/yabai -m window --warp west
+ctrl + alt + cmd - right  : /opt/homebrew/bin/yabai -m window --warp east
+ctrl + alt + cmd - up     : /opt/homebrew/bin/yabai -m window --warp north
+ctrl + alt + cmd - down   : /opt/homebrew/bin/yabai -m window --warp south
+
+cmd + alt + ctrl - left   : /opt/homebrew/bin/yabai -m window --warp west
+cmd + alt + ctrl - right  : /opt/homebrew/bin/yabai -m window --warp east
+cmd + alt + ctrl - up     : /opt/homebrew/bin/yabai -m window --warp north
+cmd + alt + ctrl - down   : /opt/homebrew/bin/yabai -m window --warp south
+
+# New iTerm2 window — ⌃⌥⌘= (keycode 0x18; skhd has no "equal" key name)
+ctrl + alt + cmd - 0x18 : /Users/olivertran/.config/skhd/scripts/iterm-new-window.sh
+
+# Move focused window to other display (⌃⇧Z); uses display index + next/prev fallback
+ctrl + shift - z          : /usr/bin/env python3 /Users/olivertran/.config/skhd/scripts/yabai-window-other-display.py
+
+# Resize — ⌃⌥ arrows only: toward split = grow, opposite = shrink (works left/right panes, top/bottom, floats)
+ctrl + alt - left         : /usr/bin/env python3 /Users/olivertran/.config/skhd/scripts/yabai-arrow-resize.py left
+ctrl + alt - right        : /usr/bin/env python3 /Users/olivertran/.config/skhd/scripts/yabai-arrow-resize.py right
+ctrl + alt - up           : /usr/bin/env python3 /Users/olivertran/.config/skhd/scripts/yabai-arrow-resize.py up
+ctrl + alt - down         : /usr/bin/env python3 /Users/olivertran/.config/skhd/scripts/yabai-arrow-resize.py down
+
+# Toggle float + center — ⌥⇧F
+shift + alt - f           : /opt/homebrew/bin/yabai -m window --toggle float; \
+                            /opt/homebrew/bin/yabai -m window --grid 6:6:1:1:4:4
+
+# Focus adjacent window — ⌥⇧ + arrows (Option + Shift; no Control so it doesn’t clash with ⌃⌥ bindings)
+shift + alt - left        : /opt/homebrew/bin/yabai -m window --focus west
+shift + alt - right       : /opt/homebrew/bin/yabai -m window --focus east
+shift + alt - up          : /opt/homebrew/bin/yabai -m window --focus north
+shift + alt - down        : /opt/homebrew/bin/yabai -m window --focus south
+
+# Jump to space: 1-6 = z x c v b n; 7-9 = digits (comma/period break skhd parser on some builds)
+ctrl + alt - z              : /opt/homebrew/bin/yabai -m space --focus 1
+ctrl + alt - x              : /opt/homebrew/bin/yabai -m space --focus 2
+ctrl + alt - c              : /opt/homebrew/bin/yabai -m space --focus 3
+ctrl + alt - v              : /opt/homebrew/bin/yabai -m space --focus 4
+ctrl + alt - a              : /opt/homebrew/bin/yabai -m space --focus 5
+ctrl + alt - s              : /opt/homebrew/bin/yabai -m space --focus 6
+ctrl + alt - d              : /opt/homebrew/bin/yabai -m space --focus 7
+ctrl + alt - f              : /opt/homebrew/bin/yabai -m space --focus 8
+ctrl + alt - g              : /opt/homebrew/bin/yabai -m space --focus 9
+ctrl + alt - h              : /opt/homebrew/bin/yabai -m space --focus 10

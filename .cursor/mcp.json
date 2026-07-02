@@ -1,0 +1,100 @@
+{
+  "mcpServers": {
+    "apple-docs": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "apple-doc-mcp-server@latest"
+      ],
+      "env": {}
+    },
+    "next-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "next-devtools-mcp@latest"
+      ],
+      "env": {}
+    },
+    "Browser Use": {
+      "url": "https://docs.browser-use.com/mcp",
+      "headers": {},
+      "env": {}
+    },
+    "Perplexity": {
+      "command": "npx -y @perplexity-ai/mcp-server",
+      "env": {
+        "PERPLEXITY_API_KEY": "REDACTED"
+      },
+      "args": []
+    },
+    "axiom": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "axiom-mcp"
+      ],
+      "env": {}
+    },
+    "XcodeBuildMCP": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "xcodebuildmcp@latest",
+        "mcp"
+      ],
+      "env": {
+        "DEVELOPER_DIR": "/Applications/Utilities/Xcode.app/Contents/Developer"
+      }
+    },
+    "interactive": {
+      "command": "npx mcp-interactive -t 300",
+      "env": {},
+      "args": []
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--extension"
+      ],
+      "env": {
+        "PLAYWRIGHT_MCP_EXTENSION_TOKEN": "REDACTED"
+      }
+    },
+    "playwright-isolated": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--config",
+        "/Users/olivertran/.cursor/playwright-mcp.config.json"
+      ],
+      "env": {}
+    },
+    "playwright-cdp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--config",
+        "/Users/olivertran/.cursor/playwright-mcp-cdp.config.json"
+      ],
+      "env": {}
+    },
+    "ticktick": {
+      "url": "https://mcp.ticktick.com",
+      "env": {}
+    },
+    "perplexity": {
+      "command": "pwm-mcp",
+      "args": [],
+      "env": {}
+    },
+    "beeper": {
+      "url": "http://localhost:23373/v0/mcp",
+      "env": {}
+    }
+  }
+}

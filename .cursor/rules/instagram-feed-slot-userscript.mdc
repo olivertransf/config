@@ -1,0 +1,13 @@
+---
+description: Instagram userscript — detect sibling posts when collapsing feed slots
+globs: "**/instagram-suggested-feed.js"
+alwaysApply: false
+---
+
+# Instagram feed slot climbing
+
+When walking up from an `article` to collapse a wrapper, **sibling posts are often other `<article>` nodes**. `element.querySelector("article")` is **false** on an `<article>`, so peer detection must treat **`tagName === "ARTICLE"`** the same as “contains an article”.
+
+Exclude the current branch with `c === el || c.contains(el)` as `el` climbs (not only the original `article`).
+
+Cap climb depth (e.g. 6) so a bad heuristic cannot hide an entire column.

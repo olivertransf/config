@@ -1,0 +1,14 @@
+---
+description: Google Drive cleanup — respect curated folders + Tran_Oliver_AY*
+alwaysApply: true
+---
+
+# Google Drive (synced paths)
+
+When organizing `~/Documents/Drive`, `~/Documents/School Drive`, or other synced Drive folders:
+
+- **Light polish only** unless the user asks for detailed sorting (rename awkward folders, flatten accidental over-sorting, clearer names — not deep topic taxonomy).
+- **Do not reorganize contents inside folders that are already curated**, including **`Noteful Backup`** (existing notebook/year layout stays).
+- **Do not modify** folders whose names match **`Tran_Oliver_AY*`** (e.g. `Tran_Oliver_AY23-24`, `Tran_Oliver_AY24-25`, `Tran_Oliver_AY25-26`). Do not move files into or out of those folders unless the user explicitly asks.
+
+Apply broader cleanup elsewhere only when the user requests Drive cleanup.

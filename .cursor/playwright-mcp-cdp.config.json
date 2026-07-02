@@ -1,0 +1,9 @@
+{
+  "browser": {
+    "cdpEndpoint": "http://127.0.0.1:9222"
+  },
+  "timeouts": {
+    "navigation": 45000,
+    "action": 20000
+  }
+}

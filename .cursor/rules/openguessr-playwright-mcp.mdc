@@ -1,0 +1,53 @@
+---
+description: OpenGuessr — strict AI map vision, Playwright MCP, no resize
+alwaysApply: false
+---
+
+# OpenGuessr + Playwright MCP
+
+- **URL:** [https://openguessr.com/](https://openguessr.com/) — **OpenGuessr** (not `openguesser.com`).
+- **Do not** call **`browser_resize`** — it breaks the game.
+
+## Strict AI-led placement (default)
+
+You are expected to **perform like a careful human**, not a rough guess. Sloppy pins are a failure mode to avoid.
+
+### Before you output `(fx, fy)` or any click, you MUST
+
+1. **Lock the region from Street View first** — language/script on signs, road style, vegetation, architecture, Bollard/driving side, climate. Name the **country or primary candidate** and **why** in one or two concrete observations (not vibes).
+2. **Screenshot evidence** — After **Guess** + **hover `#map`**, capture:
+   - **`#map` element only** with `page.locator('#map').screenshot({ path: '…', scale: 'css' })` (primary — largest, clearest map for vision), **and** optionally full viewport if the panorama in the same frame helps.
+3. **Align to geography on the map image** — On the **world map picture**, locate **continent outlines** and your target country **relative to neighbors** (e.g. “Anatolia between Med and Black Sea”, “southern cone west of Atlantic coast”). Do **not** pick round numbers like `0.58 / 0.40` without tying them to **visible** map features.
+4. **Precision** — Express the pin as **`(fx, fy)`** in **0.001** resolution (e.g. `0.583`, `0.407`) unless the map is too low-res to justify it. Avoid defaulting to quarters (`0.25`, `0.5`, `0.75`).
+5. **One coherent chain** — Your click must follow from: **clue → country/region → where that region sits on *this* map image → `(fx, fy)`**. If you cannot see the map clearly, say so and **take another `#map` screenshot** after hover; do not guess blindly.
+6. **Click math** — `clickX = mapRect.left + fx * mapRect.width`, `clickY = mapRect.top + fy * mapRect.height` using **fresh** `#map` `boundingBox()` immediately before `mouse.click` (layout can shift).
+
+### What is forbidden (strict)
+
+- **Mercator `lon/lng → % of #map`** as the **primary** placement when a map image is available.
+- **Vague** placement (“somewhere in Europe”) without map-image anchoring.
+- **Stale** `boundingBox()` from an earlier step without re-querying right before click.
+- **Skipping** the **`#map` element screenshot** when automating (unless tooling failure — then document it).
+
+### Coords from the page (when allowed)
+
+- Use **only** to **sanity-check** your visual region (e.g. confirm hemisphere). **Do not** convert coords to `%` clicks unless Leaflet **`latLngToContainerPoint`** is proven working for that session.
+
+### Fair play (when the user demands no cheating)
+
+- Same strict vision process; **no** addresses, Maps URLs, or scraped lat/lng for the guess.
+
+### Fair play UI sequence (manual parity)
+
+**Guess** → **hover `#map`** (expand) → pin → **Guess** again as required.
+
+## Playwright shortcuts
+
+- Target **`#map`** for hover, `boundingBox`, and element screenshots.
+- **`scale: 'css'`** on screenshots so pixels match CSS coordinates.
+
+## Anti-patterns
+
+- **`browser_resize`** on OpenGuessr.
+- Guessing **`(fx, fy)`** without **map-image** justification.
+- Clicks **without** hover-expand when that is how the UI behaves.

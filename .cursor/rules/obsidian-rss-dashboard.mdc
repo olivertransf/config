@@ -1,0 +1,17 @@
+---
+description: Local patches for Obsidian RSS Dashboard plugin (Yokihijo vault)
+globs: "**/rss-dashboard/main.js"
+alwaysApply: false
+---
+
+# RSS Dashboard (local fork)
+
+The bundled `main.js` under `.obsidian/plugins/rss-dashboard/` is patched (not from the marketplace alone). When editing or re-applying after plugin updates:
+
+1. **External links**: Replace `window.open(url, "_blank")` with `window.open(url, "rss-dashboard-external")` so the browser reuses one named window/tab instead of opening a new tab every time (YouTube button, Open in Browser, context menus, feed preview).
+
+2. **Reader pane**: `openArticleInNewTab` uses `workspace.getLeaf("tab")` (not `"split"` on desktop) so the article reader opens as a new tab in the current tab group instead of a new split.
+
+3. **Do not change** `window.open(s, "_blank")` for the blob/XML export flow.
+
+Re-apply these edits if the plugin auto-updates and overwrites `main.js`.
