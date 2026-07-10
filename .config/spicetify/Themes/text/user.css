@@ -65,8 +65,15 @@
     --global-nav-margin-top: 50px; /* set to '0px' if you disabled window controls */
 }
 
-/* font */
-*:not([style*="lyric" i] *, [class*="lyric" i], .main-entityHeader-title) {
+/* font — leave album/playlist entity header on Spotify defaults */
+*:not(
+        :is(
+            [style*="lyric" i] *,
+            [class*="lyric" i],
+            .main-entityHeader-container,
+            .main-entityHeader-container *
+        )
+    ) {
     font-family: var(--font-family) !important;
     font-size: var(--font-size) !important;
     font-weight: var(--font-weight) !important;
@@ -78,19 +85,6 @@
     font-size: var(--font-size-lyrics);
     font-weight: var(--font-weight);
     line-height: var(--line-height);
-}
-.main-entityHeader-title h1,
-.main-entityHeader-title span {
-    font-family: var(--font-family-header) !important;
-    font-size: calc(
-        var(--font-size) * var(--font-size-multiplier-header)
-    ) !important;
-    line-height: 1.2 !important;
-    letter-spacing: normal !important;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
 }
 
 /* images */
@@ -147,14 +141,7 @@ section:has(> .main-entityHeader-container),
 div:has(> .main-entityHeader-container) {
     margin-top: 0;
 }
-.main-entityHeader-container {
-    height: unset !important;
-    min-height: unset !important;
-}
-.main-entityHeader-imageContainerNew {
-    height: 128px;
-    width: 128px;
-}
+/* entity header height/size left to Spotify defaults */
 .main-topBar-overlay,
 .main-entityHeader-container > div,
 .main-entityHeader-container + div[style*="background-color"],
@@ -349,10 +336,7 @@ img[src*="equaliser"] {
 .main-avatar-avatar {
     background-color: var(--spice-border-inactive) !important;
 }
-.main-entityHeader-title h1,
-.main-entityHeader-title span {
-    color: var(--spice-banner);
-}
+/* entity header title color left to Spotify defaults */
 .search-searchCategory-contentArea {
     --carousel-start-chevron-gradient: var(--spice-main);
     --carousel-end-chevron-gradient: var(--spice-main);
@@ -726,18 +710,7 @@ form .main-topBar-searchBar:placeholder-shown {
     margin-right: var(--content-spacing);
 }
 
-/* headers */
-.main-entityHeader-container {
-    padding: var(--content-spacing) 0;
-}
-.main-entityHeader-container.main-entityHeader-withBackgroundImage {
-    background-image: radial-gradient(
-        circle,
-        rgba(var(--spice-rgb-main), 0.7) 0%,
-        rgba(var(--spice-rgb-main), 0.9) 50%,
-        rgba(var(--spice-rgb-main), 1) 100%
-    );
-}
+/* entity header layout/padding left to Spotify defaults */
 
 /* lyrics page & sidebar */
 .lyrics-lyrics-background {
@@ -1041,4 +1014,35 @@ button[data-testid="control-button-npv-episodes"] svg {
 }
 .main-connectBar-connectBar svg {
     fill: var(--spice-accent-active);
+}
+
+/* ============================================================
+   Restore Spotify defaults for album/playlist entity headers
+   (excluded from mono * rule above; undo text-theme layout hacks)
+   ============================================================ */
+.main-entityHeader-container {
+    height: revert !important;
+    min-height: revert !important;
+    max-height: revert !important;
+    padding-top: revert !important;
+    padding-bottom: var(--content-spacing) !important;
+}
+
+.main-entityHeader-imageContainerNew {
+    width: clamp(
+        128px,
+        128px + (var(--main-view-grid-width) - 600px) / 424 * 104,
+        232px
+    ) !important;
+    height: clamp(
+        128px,
+        128px + (var(--main-view-grid-width) - 600px) / 424 * 104,
+        232px
+    ) !important;
+}
+
+.main-entityHeader-title {
+    -webkit-line-clamp: 3 !important;
+    line-clamp: 3 !important;
+    line-height: normal !important;
 }
