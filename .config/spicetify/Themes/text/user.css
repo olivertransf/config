@@ -1024,8 +1024,10 @@ button[data-testid="control-button-npv-episodes"] svg {
     height: revert !important;
     min-height: revert !important;
     max-height: revert !important;
-    padding-top: var(--content-spacing) !important;
+    padding-top: 32px !important;
     padding-bottom: var(--content-spacing) !important;
+    padding-left: 24px !important;
+    padding-right: var(--content-spacing) !important;
 }
 
 .main-entityHeader-imageContainerNew {
@@ -1041,6 +1043,13 @@ button[data-testid="control-button-npv-episodes"] svg {
     ) !important;
 }
 
+.main-entityHeader-imageContainer {
+    align-self: center !important;
+    align-items: center !important;
+    margin-top: 8px !important;
+    margin-inline-start: 8px !important;
+}
+
 .main-entityHeader-title {
     -webkit-line-clamp: 3 !important;
     line-clamp: 3 !important;
@@ -1050,10 +1059,6 @@ button[data-testid="control-button-npv-episodes"] svg {
 /* Vertically center title block next to cover */
 .main-entityHeader-containerFlex,
 .main-entityHeader-contentWrapper {
-    align-items: center !important;
-}
-.main-entityHeader-imageContainer {
-    align-self: center !important;
     align-items: center !important;
 }
 .main-entityHeader-headerText {
