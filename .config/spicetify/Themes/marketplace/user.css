@@ -1,0 +1,10 @@
+/* Override text theme ASCII header font */
+:root {
+  --font-family-header: "JetBrains Mono", monospace;
+  --font-size-multiplier-header: 2;
+}
+
+.main-entityHeader-title h1,
+.main-entityHeader-title span {
+  font-family: "JetBrains Mono", monospace !important;
+}
