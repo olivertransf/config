@@ -1046,3 +1046,25 @@ button[data-testid="control-button-npv-episodes"] svg {
     line-clamp: 3 !important;
     line-height: normal !important;
 }
+
+/* Vertically center title block next to cover */
+.main-entityHeader-containerFlex,
+.main-entityHeader-contentWrapper {
+    align-items: center !important;
+}
+.main-entityHeader-imageContainer {
+    align-self: center !important;
+    align-items: center !important;
+}
+.main-entityHeader-headerText {
+    justify-content: center !important;
+}
+
+/* Smaller default album/playlist title */
+.main-entityHeader-title h1,
+.main-entityHeader-title span,
+.main-entityHeader-title .encore-text-headline-large,
+.main-entityHeader-title .encore-text-headline-medium {
+    font-size: var(--encore-text-size-larger-2) !important;
+    font-weight: 700 !important;
+}
