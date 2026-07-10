@@ -2,7 +2,7 @@
 
 Snapshot of dotfiles and tool configs from this machine.
 
-**Generated:** 2026-07-02
+**Generated:** 2026-07-10
 
 ## Layout
 
@@ -15,7 +15,8 @@ Snapshot of dotfiles and tool configs from this machine.
 | `.hammerspoon/` | Hammerspoon Lua config |
 | `.cursor/` | Cursor rules, skills, MCP config (secrets redacted) |
 | `cursor/` | Cursor/VS Code `settings.json` and `keybindings.json` |
-| `.spicetify/` | Spicetify themes and config |
+| `.config/spicetify/` | Spicetify user config, themes, custom apps (`~/.config/spicetify/`) |
+| `.spicetify/` | Spicetify CLI install + bundled apps (`~/.spicetify/`) |
 | `.config/zed/` | Zed editor settings |
 | `.config/neofetch/`, `.config/nnn/` | Terminal utilities |
 | `.config/gh/config.yml` | GitHub CLI preferences (no auth tokens) |
