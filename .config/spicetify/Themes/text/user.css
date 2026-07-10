@@ -139,7 +139,7 @@
 }
 section:has(> .main-entityHeader-container),
 div:has(> .main-entityHeader-container) {
-    margin-top: 0;
+    margin-top: revert;
 }
 /* entity header height/size left to Spotify defaults */
 .main-topBar-overlay,
@@ -1024,7 +1024,7 @@ button[data-testid="control-button-npv-episodes"] svg {
     height: revert !important;
     min-height: revert !important;
     max-height: revert !important;
-    padding-top: revert !important;
+    padding-top: var(--content-spacing) !important;
     padding-bottom: var(--content-spacing) !important;
 }
 
