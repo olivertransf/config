@@ -28,9 +28,20 @@ yabai -m rule --add app="^System Preferences$" manage=off
 # 1Password (app + unlock/quick windows) — float, don’t tile
 yabai -m rule --add app="^1Password" manage=off
 yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Google Drive$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Simulator$" manage=off
+yabai -m rule --add app="^Weather$" manage=off
+yabai -m rule --add app="^TheBoringNotch$" manage=off
+yabai -m rule --add app="^boringNotch$" manage=off
+yabai -m rule --add app="^Karabiner" manage=off
+yabai -m rule --add app="^Wallspace$" manage=off
+yabai -m rule --add app="^Tailscale$" manage=off
+yabai -m rule --add app="^Garmin Express" manage=off
+yabai -m rule --add app="^Photos$" manage=off
+yabai -m rule --add app="^The Unarchiver$" manage=off
 # Zen (Firefox-based) — picture-in-picture; don’t tile (same title as Firefox PiP)
 yabai -m rule --add app="^Zen$" title="^(Picture-in-Picture)$" manage=off
 
