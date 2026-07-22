@@ -1,0 +1,247 @@
+{
+  "main": {
+    "id": "f9f89db49da17166",
+    "type": "split",
+    "children": [
+      {
+        "id": "b8d7f1e9699a24f8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f23657b144cfa1f5",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dashboard.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "Dashboard"
+            }
+          },
+          {
+            "id": "f975618e3798aeef",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "1517139ba06c4ea7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes/essay topics.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "essay topics"
+            }
+          },
+          {
+            "id": "bfa9edc029cf94fa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Journals/boo college.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "boo college"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "76c127b131954e2d",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "88cd740ad6c624dd",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": false
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Files"
+        }
+      },
+      {
+        "id": "954ca3cc5d52fad5",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Buscar"
+        }
+      },
+      {
+        "id": "c2429765e7a17430",
+        "type": "leaf",
+        "state": {
+          "type": "all-properties",
+          "state": {
+            "sortOrder": "frequency",
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-archive",
+          "title": "All properties"
+        }
+      },
+      {
+        "id": "a47117e39ac515fc",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Marcadores"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "7e5cf2194dec14c5",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "2deee424b41edc8e",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Dashboard.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
+        }
+      },
+      {
+        "id": "1fcdd3787446aa9f",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Enlaces salientes"
+        }
+      },
+      {
+        "id": "bb9406dc8a4632d0",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "followCursor": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-list",
+          "title": "Esquema"
+        }
+      },
+      {
+        "id": "92f1041abc0e6c89",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {},
+          "icon": "lucide-ghost",
+          "title": "calendar"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-book-search-plugin:Create new book note": false,
+      "terminal:Open terminal": false,
+      "switcher:Open quick switcher": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "f975618e3798aeef",
+  "lastOpenFiles": [
+    "Journals/boo college.md",
+    "Notes/blog ideas.md",
+    "Notes/essay topics.md",
+    "Dashboard.md",
+    "Notes/building narrative.md",
+    "Notes/Scratch it.md",
+    "Clippings/o's archive.md",
+    "Clippings/Untitled.md",
+    "Clippings",
+    "Home.md",
+    "Personal/Reading List.md",
+    "Journals/2025 SUMMARY.md",
+    "Journals/2024 SUMMARY.md",
+    "Notes/SAT Roadmap.md",
+    "Notes/back in action.md",
+    "Notes/wish list.md",
+    "Notes/On religion.md",
+    "Notes/Homepage.md",
+    "Public/Collections/Quotes.md",
+    "Notes/Events.md",
+    "Notes/Everything.md",
+    "Notes/Workout Plan.md",
+    "Notes/Developer Notes.md",
+    "Journals/College Essays.md",
+    "Journals/Reading List.md",
+    "Journals/Game Design Document for Life.md",
+    "Journals/Calculating Life.md",
+    "School/JR 25-26",
+    "TaskNotes/Views/tasks-default.base",
+    "TaskNotes/Tasks",
+    "TaskNotes/Views/relationships.base",
+    "TaskNotes/Views/pomodoro-stats.base",
+    "TaskNotes/Views/agenda-default.base",
+    "TaskNotes/Views/calendar-default.base",
+    "TaskNotes/Views/kanban-default.base",
+    "TaskNotes/Views/mini-calendar-default.base"
+  ]
+}

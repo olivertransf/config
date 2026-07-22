@@ -1,0 +1,277 @@
+{
+  "main": {
+    "id": "a3f17919da151baa",
+    "type": "split",
+    "children": [
+      {
+        "id": "b8cda8c95ce05d11",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "192197feea068684",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dashboard.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "Dashboard"
+            }
+          }
+        ]
+      },
+      {
+        "id": "63acc37c6353ab9e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d25ac2de31b874e1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes/building narrative.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "building narrative"
+            }
+          },
+          {
+            "id": "bed13b2dcc40fe22",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes/Schedule.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Schedule"
+            }
+          },
+          {
+            "id": "dc6e346dfa972b0f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Journals/boo college.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "boo college"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "be2c6295626c0a14",
+    "type": "split",
+    "children": [
+      {
+        "id": "c6782e41f946dbe8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "66bd7d6a025d0653",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9dc135ec12a5baa2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "5d5ec8d991c30e1a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 253.5
+  },
+  "right": {
+    "id": "b533c7afc0a2ba0d",
+    "type": "split",
+    "children": [
+      {
+        "id": "635ff0d4f4d48051",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9bd4ff32e9aae20f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Journals/boo college.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for boo college"
+            }
+          },
+          {
+            "id": "507715d5a5b52fc7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Enlaces salientes"
+            }
+          },
+          {
+            "id": "0c169f9f482470d9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas las propiedades"
+            }
+          },
+          {
+            "id": "6237259fa89974dc",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Journals/boo college.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of boo college"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-shellcommands:Shell commands: Custom variables": false,
+      "obsidian-book-search-plugin:Create new book note": false,
+      "terminal:Open terminal": false,
+      "bettercanvas-view:Canvas LMS": false
+    }
+  },
+  "active": "bed13b2dcc40fe22",
+  "lastOpenFiles": [
+    "Notes/building narrative.md",
+    "Journals/boo college.md",
+    "Notes/Schedule.md",
+    "Dashboard.md",
+    "Notes/essay topics.md",
+    "Notes/School dashboard.md",
+    "Notes/Scratch it.md",
+    "Blog/A note to a past me.md",
+    "Notes/29-topics-w-links.pdf",
+    "Blog/Reading List.md",
+    "Blog/On religion.md",
+    "Blog/I feel happy?.md",
+    "Journals/blog ideas.md",
+    "Notes/On the excellence economy.md",
+    "Blog/Calculating Life.md",
+    "Collections/Quotes.md",
+    "Clippings/o's archive.md",
+    "Clippings/Is it better to leave a corrupt society or to stay and \"try to be the change\".md",
+    "Clippings/what makes the ordinary person not immoral?.md",
+    "Clippings/Untitled.md",
+    "Clippings",
+    "Journals/Game Design Document for Life.md",
+    "Collections/bdays.md",
+    "Personal/Archive.md",
+    "Collections/Websites.md",
+    "Collections/Updated+Runners+and+Walkers+10+-+2020.pdf",
+    "Journals/Calculating Life.md",
+    "Journals/a deep dive.md",
+    "Journals/2025 SUMMARY.md",
+    "Blog",
+    "Personal",
+    "Quick",
+    "Personal Drive/Noteful Backup/General/Guest flow.pdf",
+    "Personal Drive/Noteful Backup/General/Guest flow (1).pdf",
+    "Personal Drive/Writing/volunteer hub.gdoc",
+    "Public/Collections/Untitled",
+    "Notes/Pasted image 20260505124227.png",
+    "publish-site/dist/assets/images/6155340132a851f6089e.svg",
+    "publish-site/dist/assets/images/2308ab1944a6bfa5c5b8.svg",
+    "publish-site/assets/images/6155340132a851f6089e.svg",
+    "publish-site/assets/images/2308ab1944a6bfa5c5b8.svg",
+    "Quartz/public/index-og-image.webp",
+    "Quartz/public/Writings/On-the-classical-image-og-image.webp",
+    "Quartz/public/Portfolio/index-og-image.webp",
+    "Quartz/public/Portfolio/Studium-og-image.webp",
+    "Quartz/public/Portfolio/Soundfolio-og-image.webp"
+  ]
+}

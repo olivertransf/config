@@ -1,0 +1,12 @@
+{
+  "cssTheme": "Baseline",
+  "showRibbon": false,
+  "baseFontSize": 19,
+  "showViewHeader": true,
+  "baseFontSizeAction": true,
+  "enabledCssSnippets": [],
+  "translucency": false,
+  "interfaceFontFamily": "Atkinson Hyperlegible Mono,Atkinson Hyperlegible,Inter",
+  "textFontFamily": "JetBrains Mono,Atkinson Hyperlegible,Inter",
+  "monospaceFontFamily": "Atkinson Hyperlegible Mono"
+}

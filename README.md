@@ -21,6 +21,8 @@ Snapshot of dotfiles and tool configs from this machine.
 | `.config/neofetch/`, `.config/nnn/` | Terminal utilities |
 | `.config/gh/config.yml` | GitHub CLI preferences (no auth tokens) |
 | `library/Preferences/` | iTerm2, Raycast, Hammerspoon, Karabiner plists |
+| `library/Application Support/obsidian/` | Obsidian app vault registry (`obsidian.json`) |
+| `obsidian/penguin/.obsidian/` | Penguin vault config: plugins, themes, snippets, hotkeys |
 | `Brewfile` | Homebrew packages (`brew bundle dump`) |
 
 ## Intentionally excluded
@@ -47,6 +49,9 @@ cp .config/karabiner/karabiner.json ~/.config/karabiner/
 
 # Homebrew
 brew bundle --file=Brewfile
+
+# Obsidian (penguin vault)
+cp -R obsidian/penguin/.obsidian "/path/to/penguin/.obsidian"
 ```
 
 ## Notes
@@ -54,3 +59,5 @@ brew bundle --file=Brewfile
 - Live yabai config is `~/.config/yabai/yabairc`. The `~/.yabairc` stub in `dotfiles/` is ignored when that file exists.
 - skhd config is `~/.config/skhd/skhdrc` (no `~/.skhdrc` on this machine).
 - After restoring `.cursor/mcp.json`, paste API keys back from your live copy.
+- Live penguin vault: `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/penguin`.
+- Obsidian app caches/cookies under `~/Library/Application Support/obsidian/` are excluded; only `obsidian.json` is backed up.
